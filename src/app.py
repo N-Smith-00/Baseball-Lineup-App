@@ -26,6 +26,16 @@ def login_post():
     password = request.form['password']
     return redirect('/profile', code=302)
 
+@app.route('/register')
+def register():
+    return render_template('register.html')
+
+@app.route('/register', methods=['POST'])
+def registration_post():
+    username = request.form['username'].lower()
+    password = request.form['password']
+    return redirect('/login')
+
 @app.route('/create-team')
 def create_team():
     return render_template('createTeam.html')
